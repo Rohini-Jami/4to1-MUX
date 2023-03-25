@@ -1,0 +1,12 @@
+module MUX_4to1(S,I,O);
+input [2:0]S,[3:0]I;
+output O;
+wire w1,w2,w3,w4,w5,w6;
+not g1(w1,S[0]);
+not g2(w2,S[1]);
+and g3(w3,I[0],w1,w2);
+and g4(w4,I[1],w2,S[0]);
+and g5(w5,I[2],w1,S[1]);
+and g6(w6,I[3],S[0],S[1]);
+or g7(O,w3,w4,w5,w6);
+endmodule
